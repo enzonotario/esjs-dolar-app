@@ -13,6 +13,7 @@
     "@es-js/vite-plugin-esvue": "^0.0.7",
     "@unocss/reset": "^0.48.0",
     "@vitejs/plugin-vue": "^3.2.0",
+    "axios": "^1.2.2",
     "unocss": "^0.48.0",
     "vite": "^3.2.5",
     "vue": "^3.2.45"

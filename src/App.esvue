@@ -1,30 +1,47 @@
 ---
 importar { ref } desde 'vue';
+importar axios desde "axios";
 
-const contador = ref(0);
+const dolares = ref(nulo);
 
-funcion aumentarContador() {
-	contador.value++;
+const apiUrl = 'https://dolar-api-argentina.vercel.app/'
+
+obtenerDolares()
+
+asincrono funcion obtenerDolares() {
+	consola.escribir('obtenerdolares');
+	dolares.valor = (esperar axios.get(apiUrl + 'dolares')).data
 }
 
-funcion resetearContador() {
-	contador.value = 0
-}
 ---
 <template>
-	<div class="grid place-items-center min-h-screen">
-		<div class="space-y-10">
-			<div class="flex flex-col items-center space-y-3 text-center">
-				<img src="/favicon.ico" class="w-24 h-24" />
-				<h1 class="text-2xl">Hola desde EsJS + EsVue!</h1>
-				<span>Contador: {{contador}}</span>
-				<button @click="aumentarContador()" class="p-2 rounded border hover:bg-gray-100">Aumentar contador</button>
-				<button @click="resetearContador()" class="p-2 rounded border hover:bg-gray-100">Resetear contador</button>
-			</div>
+	<div class="grid place-items-center min-h-screen bg-gray-200">
+		<div class="py-10 space-y-10">
+			<div 
+				v-for="dolar of dolares" :key="dolar.identificador" 
+				class="flex flex-row items-center p-6 space-y-4 bg-white rounded border hover:text-indigo-800 hover:border-indigo-300">
+				<h1 class="text-2xl">Dólar {{ dolar.nombre }}</h1>
 
-			<div class="grid place-items-center">
-				<a class="text-blue-600 dark:text-blue-500 hover:underline" href="https://github.com/es-js/esjs" aria-label="Star es-js/esjs on GitHub">Dejá tu estrella en GitHub!</a>
+				<div class="flex grow min-w-20"></div>
+
+				<div>
+					<div class="grid grid-cols-2 gap-6 -mt-4">
+						<dl v-if="dolar.compra">
+							<dt class="text-sm uppercase text-gray-700">Compra</dt>
+							<dd class="text-xl">${{ dolar.compra }}</dd>
+						</dl>
+						<dl v-else></dl>
+
+						<dl v-if="dolar.venta">
+							<dt class="text-sm uppercase text-gray-700">Venta</dt>
+							<dd class="text-xl">${{ dolar.venta }}</dd>
+						</dl>
+						<dl v-else></dl>
+					</div>
+				</div>
 			</div>
 		</div>
+
+		<span>Desarrollado con <a href="https://esjs.dev" target="_blank" class="text-indigo-800">esjs.dev</a></span>
 	</div>
 </template>
