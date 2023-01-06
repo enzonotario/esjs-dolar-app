@@ -17,6 +17,11 @@ asincrono funcion obtenerDolares() {
 <template>
 	<div class="grid place-items-center min-h-screen bg-gray-200">
 		<div class="py-10 space-y-10">
+			<div class="text-center text-gray-800 space-y-2">
+				<p>Datos obtenidos de <a :href="apiUrl" target="_blank" class="text-indigo-800">{{ apiUrl }}</a></p>
+				<p>{{ dolares[0].fechaActualizacion }}</p>
+			</div>
+
 			<div 
 				v-for="dolar of dolares" :key="dolar.identificador" 
 				class="flex flex-row items-center p-6 space-y-4 bg-white rounded border hover:text-indigo-800 hover:border-indigo-300">
