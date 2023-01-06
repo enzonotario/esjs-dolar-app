@@ -1,18 +1,3 @@
-# @es-js/crear-esvue
+# esjs-dolar-app
 
-Plantilla para iniciar un proyecto EsVue (EsJS + Vue).
-
-## Uso
-
-### Desde GitHub
-Utilizando este proyecto como *template*.
-
-### Desde tu computadora
-
-Ejecutando:
-
-```
-npx degit https://github.com/es-js/crear-esvue-app mi-esvue-app
-cd mi-esvue-app
-pnpm i
-```
+Aplicación escrita en [EsVue](https://esjs.dev) que muestra las cotizaciones de los diferentes Dólares en Argentina a partir de los datos obtenidos de la API [esjs-dolar-api](https://github.com/enzonotario/esjs-dolar-api).
