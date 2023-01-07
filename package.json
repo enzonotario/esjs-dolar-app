@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite-ssr build",
+    "build": "vavite",
     "serve": "vite preview"
   },
   "devDependencies": {
@@ -15,9 +15,10 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "@vueuse/head": "^1.0.22",
     "axios": "^1.2.2",
+    "express": "^4.18.2",
     "unocss": "^0.48.0",
+    "vavite": "^1.5.2",
     "vite": "^4.0.4",
-    "vite-ssr": "^0.16.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   }

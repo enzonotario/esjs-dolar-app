@@ -1,5 +1,9 @@
 ---
 ---
 <template>
-	<router-view></router-view>
+	<div class="grid place-items-center min-h-screen bg-gray-200">
+		<slot></slot>
+
+		<span>Desarrollado con <a href="https://esjs.dev" target="_blank" class="text-indigo-800">esjs.dev</a></span>
+	</div>
 </template>
