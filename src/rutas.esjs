@@ -1,0 +1,6 @@
+exportar porDefecto [
+    {
+        path: '/',
+        component: () => importar('@/paginas/inicio.esvue')
+    }
+]

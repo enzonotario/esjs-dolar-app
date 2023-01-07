@@ -4,10 +4,13 @@ import vue from '@vitejs/plugin-vue'
 import EsJS from '@es-js/vite-plugin-esjs'
 import EsVue from '@es-js/vite-plugin-esvue'
 import Unocss from 'unocss/vite'
+import viteSSR from 'vite-ssr/plugin.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    viteSSR(),
+
     vue({
       include: [/\.vue$/, /\.esvue$/],
     }),
