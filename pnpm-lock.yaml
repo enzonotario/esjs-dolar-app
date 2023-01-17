@@ -8,6 +8,7 @@ specifiers:
   '@vitejs/plugin-vue': ^4.0.0
   '@vueuse/head': ^1.0.22
   axios: ^1.2.2
+  date-fns: ^2.29.3
   express: ^4.18.2
   unocss: ^0.48.0
   vavite: ^1.5.2
@@ -23,6 +24,7 @@ devDependencies:
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
   '@vueuse/head': 1.0.22_vue@3.2.45
   axios: 1.2.2
+  date-fns: 2.29.3
   express: 4.18.2
   unocss: 0.48.0_vite@4.0.4
   vavite: 1.5.2_vite@4.0.4
@@ -1153,6 +1155,11 @@ packages:
 
   /csstype/2.6.21:
     resolution: {integrity: sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==}
+    dev: true
+
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
     dev: true
 
   /debug/2.6.9:

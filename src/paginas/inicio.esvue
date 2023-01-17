@@ -1,6 +1,8 @@
 ---
 importar { ref } desde 'vue';
 importar axios desde "axios";
+importar format desde 'date-fns/format/index.js'
+importar parseISO desde 'date-fns/parseISO/index.js'
 
 const props = defineProps({
 	apiUrl: String,
@@ -11,7 +13,7 @@ const props = defineProps({
 	<div v-if="props.dolares" class="py-10 px-4 space-y-10">
 		<div class="text-center text-gray-800 text-sm space-y-2">
 			<p>Datos obtenidos de <a :href="props.apiUrl" target="_blank" class="text-indigo-800">{{ props.apiUrl }}</a></p>
-			<p>{{ props.dolares[0].fechaActualizacion }}</p>
+			<p>Actualizado el {{ format(parseISO(props.dolares[0].fechaActualizacion), "dd/MM/yyyy 'a las' HH:mm") }}</p>
 		</div>
 
 		<div
