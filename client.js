@@ -15,7 +15,7 @@ async function render() {
 
 	const Page = (await importer()).default;
 
-	const apiUrl = 'https://dolar-api-argentina.vercel.app/v1/'
+	const apiUrl = 'https://dolarapi.com/v1/'
 	const dolares = (await axios.get(apiUrl + 'dolares')).data
 
 	const app = createSSRApp({
