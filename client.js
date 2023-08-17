@@ -15,8 +15,8 @@ async function render() {
 
 	const Page = (await importer()).default;
 
-	const apiUrl = 'https://dolarapi.com/v1/'
-	const dolares = (await axios.get(apiUrl + 'dolares')).data
+	const apiUrl = 'https://dolarapi.com/'
+	const dolares = (await axios.get(apiUrl + 'v1/dolares')).data
 
 	const app = createSSRApp({
 		render() {
