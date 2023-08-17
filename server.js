@@ -35,8 +35,8 @@ async function render(req, res, importer) {
 		// preload links for assets needed for the rendered page
 	}
 
-	const apiUrl = 'https://dolar-api-argentina.vercel.app/v1/'
-	const dolares = (await axios.get(apiUrl + 'dolares')).data
+	const apiUrl = 'https://dolarapi.com/'
+	const dolares = (await axios.get(apiUrl + 'v1/dolares')).data
 
 	const Content = defineComponent({
 		render() {
