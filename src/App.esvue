@@ -4,6 +4,6 @@
 	<div class="grid place-items-center min-h-screen bg-gray-100">
 		<slot></slot>
 
-		<span class="text-sm">Desarrollado con <a href="https://esjs.dev" target="_blank" class="text-indigo-900">esjs.dev</a></span>
+		<span class="text-sm">Desarrollado con <a href="https://esjs.dev" target="_blank" class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded">esjs.dev</a></span>
 	</div>
 </template>

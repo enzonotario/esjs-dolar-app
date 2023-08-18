@@ -12,7 +12,7 @@ const props = defineProps({
 <template>
 	<div v-if="props.dolares" class="py-10 px-4 space-y-10">
 		<div class="text-center text-gray-800 text-sm space-y-2">
-			<p>Datos obtenidos de <a :href="props.apiUrl" target="_blank" class="text-indigo-900">{{ props.apiUrl }}</a></p>
+			<p>Datos obtenidos de <a :href="props.apiUrl" target="_blank" class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded">{{ props.apiUrl }}</a></p>
 			<p>Actualizado el {{ format(parseISO(props.dolares[0].fechaActualizacion), "dd/MM/yyyy 'a las' HH:mm") }}</p>
 		</div>
 
