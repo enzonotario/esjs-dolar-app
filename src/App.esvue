@@ -1,9 +1,9 @@
 ---
 ---
 <template>
-	<div class="grid place-items-center min-h-screen bg-gray-200">
+	<div class="grid place-items-center min-h-screen bg-gray-100">
 		<slot></slot>
 
-		<span class="text-sm">Desarrollado con <a href="https://esjs.dev" target="_blank" class="text-indigo-800">esjs.dev</a></span>
+		<span class="text-sm">Desarrollado con <a href="https://esjs.dev" target="_blank" class="text-indigo-900">esjs.dev</a></span>
 	</div>
 </template>
