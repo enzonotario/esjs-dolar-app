@@ -41,7 +41,7 @@ const props = defineProps({
 		</div>
 
 		<div class="text-center text-gray-800 text-sm">
-			<p>Desarrollado con <a href="https://esjs.dev" target="_blank" class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded">esjs.dev</a></p>
+			<p>Desarrollado con <a href="https://esjs.dev?ref=app.dolarapi.com" target="_blank" class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded">esjs.dev</a></p>
 		</div>
 	</div>
 </template>
