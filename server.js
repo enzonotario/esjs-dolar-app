@@ -57,6 +57,8 @@ async function render(req, res, importer) {
 
 	const content = await renderToString(createSSRApp(Content));
 
+	const gTagId = import.meta.env.VITE_GTAG_ID
+
 	let html = `<!DOCTYPE html><html lang="es">
 		<head>
 			<meta charset="UTF-8">
@@ -65,13 +67,13 @@ async function render(req, res, importer) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			<title>Dólar Argentina - EsJS</title>
 			<link rel="stylesheet" href="${cssEntryPath}">
-			<script async src="https://www.googletagmanager.com/gtag/js?id=G-G4VJPLY52Z"></script>
+			<script async src="https://www.googletagmanager.com/gtag/js?id=${gTagId}"></script>
 			<script>
 			  window.dataLayer = window.dataLayer || [];
 			  function gtag(){dataLayer.push(arguments);}
 			  gtag('js', new Date());
 		
-			  gtag('config', 'G-G4VJPLY52Z');
+			  gtag('config', '${gTagId}');
 			</script>
 		</head>
 		<body>

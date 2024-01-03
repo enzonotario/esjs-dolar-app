@@ -8,35 +8,52 @@ const props = defineProps({
 	apiUrl: String,
 	dolares: Array,
 })
+
+const dolares = props.dolares
+	.mapear(dolar => {
+		si (dolar.nombre === "Contado con liquidación") {
+			retornar {
+				...dolar,
+				nombre: "CCL",
+			}
+		}
+
+		retornar dolar
+	})
 ---
 <template>
-	<div v-if="props.dolares" class="py-10 px-4 space-y-10">
+	<div v-if="dolares" class="py-10 px-4 space-y-10">
 		<div class="text-center text-gray-800 text-sm space-y-2">
 			<p>Datos obtenidos de <a :href="props.apiUrl" target="_blank" class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded">{{ props.apiUrl }}</a></p>
-			<p>Actualizado el {{ format(parseISO(props.dolares[0].fechaActualizacion), "dd/MM/yyyy 'a las' HH:mm") }}</p>
+			<p>Actualizado el {{ format(parseISO(dolares[0].fechaActualizacion), "dd/MM/yyyy 'a las' HH:mm") }}</p>
 		</div>
 
-		<div
-			v-for="dolar of props.dolares" :key="dolar.identificador"
-			class="flex flex-col sm:flex-row items-center p-6 space-y-4 bg-white rounded border hover:text-indigo-900 hover:border-indigo-300">
-			<h1 class="text-lg sm:text-2xl">Dólar {{ dolar.nombre }}</h1>
 
-			<div class="flex grow min-w-20"></div>
+		<div class="flex flex-row flex-wrap justify-center gap-4">
+			<div
+				v-for="dolar of dolares" :key="dolar.identificador"
+				class="flex flex-col p-4 bg-white rounded border w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+				<h1 class="text-lg text-center font-bold text-gray-800">Dólar {{ dolar.nombre }}</h1>
 
-			<div>
-				<div class="grid grid-cols-2 gap-6 -mt-4">
-					<dl v-if="dolar.compra">
-						<dt class="text-sm uppercase text-gray-700">Compra</dt>
-						<dd class="text-xl">${{ dolar.compra }}</dd>
-					</dl>
-					<dl v-else></dl>
+				<div class="flex-1"></div>
 
-					<dl v-if="dolar.venta">
-						<dt class="text-sm uppercase text-gray-700">Venta</dt>
-						<dd class="text-xl">${{ dolar.venta }}</dd>
-					</dl>
-					<dl v-else></dl>
-				</div>
+				<dl>
+					<div class="flex items-center">
+						<div v-if="dolar.compra" class="flex-1 flex flex-col justify-center items-center">
+							<dt class="text-xs uppercase text-gray-600">Compra</dt>
+							<dd class="text-gray-800 font-bold">${{ dolar.compra }}</dd>
+						</div>
+						<div v-else class="flex-1"></div>
+
+						<div class="flex-1"></div>
+
+						<div v-if="dolar.venta" class="flex-1 flex flex-col justify-center items-center">
+							<dt class="text-xs uppercase text-gray-600">Venta</dt>
+							<dd class="text-gray-800 font-bold">${{ dolar.venta }}</dd>
+						</div>
+						<div v-else class="flex-1"></div>
+					</div>
+				</dl>
 			</div>
 		</div>
 
