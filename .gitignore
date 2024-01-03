@@ -27,4 +27,3 @@ dist-ssr
 .vercel
 
 .env
-static/app.css
