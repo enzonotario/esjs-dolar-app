@@ -1,22 +1,14 @@
 {
-  "outputDirectory": "dist/cliente",
+  "outputDirectory": "dist",
   "functions": {
-    "api/index.js": {
-      "includeFiles": "dist/servidor/**"
-    }
+    "api/index.mjs": {
+      "includeFiles": "dist/**"
+     }
   },
   "rewrites": [
-    {
-      "source": "/static/(.*)",
-      "destination": "/cliente/static/$1"
-    },
-    {
-      "source": "/favicon.ico",
-      "destination": "/static/favicon.ico"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/api/index.js"
-    }
+      {
+        "source": "/((?!dist/).*)",
+        "destination": "/api/index.mjs"
+      }
   ]
 }

@@ -1,0 +1,7 @@
+---
+---
+<template>
+	<div class="grid place-items-center min-h-screen bg-gray-100">
+		<slot></slot>
+	</div>
+</template>
