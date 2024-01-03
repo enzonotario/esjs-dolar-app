@@ -1,3 +1,0 @@
-exportar porDefecto {
-    '/': () =>  importar('@/paginas/inicio.esvue')
-}

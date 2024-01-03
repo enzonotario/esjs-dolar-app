@@ -1,0 +1,13 @@
+importar { Hono } desde 'hono'
+importar { html } desde 'hono/html'
+importar { plantilla } desde './plantilla.esjs'
+
+exportar const inicio = crear Hono()
+
+inicio.obtener('/', asincrono (c) => {
+  const dolares = (
+    esperar (esperar fetch('https://dolarapi.com/v1/dolares')).json()
+  )
+
+  retornar c.html(plantilla(dolares))
+})

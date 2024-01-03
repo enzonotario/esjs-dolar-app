@@ -1,0 +1,62 @@
+importar { html } desde 'hono/html'
+importar { format } desde 'date-fns'
+
+exportar funcion grilla(dolares) {
+  retornar html`<div
+    class="w-full max-w-4xl mx-auto py-10 px-4 space-y-10 md:space-y-20"
+  >
+    <div class="text-center text-gray-800 text-sm space-y-2">
+      <p>
+        Datos obtenidos de
+        <a
+          href="https://dolarapi.com"
+          target="_blank"
+          class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded"
+        >
+          DolarApi.com
+        </a>
+      </p>
+      <p>
+        Actualizado el
+        ${format(dolares[0].fechaActualizacion, "dd/MM/yyyy 'a las' HH:mm")}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      ${dolares.map(
+        (dolar) =>
+          html`<div clase="flex flex-col p-4 bg-white rounded border">
+            <h2 clase="text-xl font-bold text-gray-800">
+              Dólar ${dolar.nombre}
+            </h2>
+
+            <span clase="flex-1"></span>
+
+            <dl clase="mt-4">
+              <div clase="flex justify-between">
+                <dt clase="text-gray-600">Compra</dt>
+                <dd clase="text-gray-800 font-bold">$${dolar.compra}</dd>
+              </div>
+              <div clase="flex justify-between">
+                <dt clase="text-gray-600">Venta</dt>
+                <dd clase="text-gray-800 font-bold">$${dolar.venta}</dd>
+              </div>
+            </dl>
+          </div>`,
+      )}
+    </div>
+
+    <div class="text-center text-gray-800 text-sm">
+      <p>
+        Desarrollado con
+        <a
+          href="https://esjs.dev?ref=app.dolarapi.com"
+          target="_blank"
+          class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded"
+        >
+          esjs.dev
+        </a>
+      </p>
+    </div>
+  </div>`
+}

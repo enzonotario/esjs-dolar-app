@@ -1,5 +1,5 @@
 {
-  "name": "EsVue",
+  "name": "App.DolarApi.Com",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
   "features": {
     "ghcr.io/NicoVIII/devcontainer-features/pnpm:2": {}
@@ -17,7 +17,7 @@
   "customizations": {
     "codespaces": {
       "openFiles": [
-        "src/App.esvue"
+        "api/app.esjs"
       ]
     }
   },

@@ -13,6 +13,7 @@ node_modules
 # Archivos generados
 dist
 dist-ssr
+.vercel
 
 # Configuraciones de Editores
 .vscode/*
@@ -24,7 +25,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-.vercel
 
 .env
-static/app.css

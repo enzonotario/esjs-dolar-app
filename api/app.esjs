@@ -1,0 +1,11 @@
+importar { Hono } desde 'hono'
+importar { html } desde 'hono/html'
+importar { inicio } desde '@/rutas/inicio/inicio.esjs'
+importar { cache } desde '@/intermediarios/cache.intermediario.esjs'
+
+exportar const app = crear Hono().basePath('/')
+
+app.use('/', cache(240))
+app.route('/', inicio)
+
+exportar porDefecto app
