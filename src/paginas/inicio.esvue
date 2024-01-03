@@ -24,7 +24,7 @@ const dolares = props.dolares
 <template>
 	<div v-if="dolares" class="py-10 px-4 space-y-10">
 		<div class="text-center text-gray-800 text-sm space-y-2">
-			<p>Datos obtenidos de <a :href="props.apiUrl" target="_blank" class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded">{{ props.apiUrl }}</a></p>
+			<p>Datos obtenidos de <a :href="props.apiUrl" target="_blank" class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded">DolarApi.com</a></p>
 			<p>Actualizado el {{ format(parseISO(dolares[0].fechaActualizacion), "dd/MM/yyyy 'a las' HH:mm") }}</p>
 		</div>
 
@@ -37,23 +37,23 @@ const dolares = props.dolares
 
 				<div class="flex-1"></div>
 
-				<dl>
+				<div>
 					<div class="flex items-center">
-						<div v-if="dolar.compra" class="flex-1 flex flex-col justify-center items-center">
+						<dl v-if="dolar.compra" class="flex-1 flex flex-col justify-center items-center">
 							<dt class="text-xs uppercase text-gray-600">Compra</dt>
 							<dd class="text-gray-800 font-bold">${{ dolar.compra }}</dd>
-						</div>
+						</dl>
 						<div v-else class="flex-1"></div>
 
 						<div class="flex-1"></div>
 
-						<div v-if="dolar.venta" class="flex-1 flex flex-col justify-center items-center">
+						<dl v-if="dolar.venta" class="flex-1 flex flex-col justify-center items-center">
 							<dt class="text-xs uppercase text-gray-600">Venta</dt>
 							<dd class="text-gray-800 font-bold">${{ dolar.venta }}</dd>
-						</div>
+						</dl>
 						<div v-else class="flex-1"></div>
 					</div>
-				</dl>
+				</div>
 			</div>
 		</div>
 
