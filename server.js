@@ -38,6 +38,8 @@ async function render(req, res, importer) {
 	const apiUrl = 'https://dolarapi.com/'
 	const dolares = (await axios.get(apiUrl + 'v1/dolares')).data
 
+	const ogQueryParam = req.query.og
+
 	const Content = defineComponent({
 		render() {
 			return h(
@@ -48,6 +50,7 @@ async function render(req, res, importer) {
 						return h(Page, {
 							apiUrl,
 							dolares,
+							og: ogQueryParam !== undefined,
 						});
 					},
 				},

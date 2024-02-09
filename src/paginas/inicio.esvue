@@ -8,6 +8,7 @@ importar { useDark, useToggle } desde '@vueuse/core';
 const props = defineProps({
 	apiUrl: String,
 	dolares: Array,
+    og: Boolean,
 })
 
 const modoOscuro = useDark()
@@ -28,7 +29,7 @@ const dolares = props.dolares
 ---
 <template>
 	<div v-if="dolares" class="py-10 px-4 space-y-10">
-        <div class="flex justify-center">
+        <div v-if="!props.og" class="flex justify-center">
             <button class="px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center space-x-2 text-xs"
                     @click="cambiarModoOscuro()">
                 <svg v-if="!modoOscuro"

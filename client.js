@@ -28,6 +28,7 @@ async function render() {
 						return h(Page, {
 							apiUrl,
 							dolares,
+							og: window.location.search.includes('og'),
 						});
 					},
 				},
