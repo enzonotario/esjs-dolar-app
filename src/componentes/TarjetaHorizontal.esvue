@@ -1,0 +1,26 @@
+---
+const props = defineProps({
+    dolar: Object,
+})
+---
+<template>
+    <div class="flex flex-row flex-wrap items-center p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">
+        <h1 class="text-lg text-center font-bold text-gray-800 dark:text-gray-200">Dólar {{ dolar.nombre }}</h1>
+
+        <div class="flex-1 lg:min-w-10"></div>
+
+        <div class="flex justify-end flex-grow lg:gap-4">
+            <dl v-if="dolar.compra" class="flex flex-col justify-center items-center w-20">
+                <dt class="text-xs uppercase text-gray-600 dark:text-gray-400">Compra</dt>
+                <dd class="text-gray-800 dark:text-gray-200 font-bold">${{ dolar.compra }}</dd>
+            </dl>
+            <div v-else class="flex-1"></div>
+
+            <dl v-if="dolar.venta" class="flex flex-col justify-center items-center w-20">
+                <dt class="text-xs uppercase text-gray-600 dark:text-gray-400">Venta</dt>
+                <dd class="text-gray-800 dark:text-gray-200 font-bold">${{ dolar.venta }}</dd>
+            </dl>
+            <div v-else class="flex-1"></div>
+        </div>
+    </div>
+</template>
