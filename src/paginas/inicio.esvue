@@ -3,11 +3,16 @@ importar { ref } desde 'vue';
 importar axios desde "axios";
 importar format desde 'date-fns/format/index.js'
 importar parseISO desde 'date-fns/parseISO/index.js'
+importar { useDark, useToggle } desde '@vueuse/core';
 
 const props = defineProps({
 	apiUrl: String,
 	dolares: Array,
 })
+
+const modoOscuro = useDark()
+
+const cambiarModoOscuro = useToggle(modoOscuro)
 
 const dolares = props.dolares
 	.mapear(dolar => {
@@ -23,7 +28,20 @@ const dolares = props.dolares
 ---
 <template>
 	<div v-if="dolares" class="py-10 px-4 space-y-10">
-		<div class="text-center text-gray-800 text-sm space-y-2">
+        <div class="flex justify-center">
+            <button class="px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center space-x-2 text-xs"
+                    @click="cambiarModoOscuro()">
+                <svg v-if="!modoOscuro"
+                     xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="w-4 h-4"><path fill="none" stroke="currentColor" stroke-dasharray="64" stroke-dashoffset="64" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21C15.53 21 18.59 18.96 20.06 16C20.06 16 14 17.5 11 13C8 8.5 12 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="64;0"/></path></svg>
+
+                <svg v-if="modoOscuro"
+                     xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                     class="w-4 h-4"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="34" stroke-dashoffset="34" d="M12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="34;0"/></path><g stroke-dasharray="2" stroke-dashoffset="2"><path d="M0 0"><animate fill="freeze" attributeName="d" begin="0.5s" dur="0.2s" values="M12 19v1M19 12h1M12 5v-1M5 12h-1;M12 21v1M21 12h1M12 3v-1M3 12h-1"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.2s" values="2;0"/></path><path d="M0 0"><animate fill="freeze" attributeName="d" begin="0.7s" dur="0.2s" values="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5;M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5"/><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" values="2;0"/></path></g></g></svg>
+                <span>{{ modoOscuro ? 'Modo claro' : 'Modo oscuro' }}</span>
+            </button>
+        </div>
+
+		<div class="text-center text-gray-800 dark:text-gray-200 text-sm space-y-2">
 			<p>Datos obtenidos de <a :href="props.apiUrl" target="_blank" class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded">DolarApi.com</a></p>
 			<p>Actualizado el {{ format(parseISO(dolares[0].fechaActualizacion), "dd/MM/yyyy 'a las' HH:mm") }}</p>
 		</div>
@@ -32,24 +50,24 @@ const dolares = props.dolares
 		<div class="flex flex-row flex-wrap justify-center gap-4">
 			<div
 				v-for="dolar of dolares" :key="dolar.identificador"
-				class="flex flex-col p-4 bg-white rounded border w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
-				<h1 class="text-lg text-center font-bold text-gray-800">Dólar {{ dolar.nombre }}</h1>
+				class="flex flex-col p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700 w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+				<h1 class="text-lg text-center font-bold text-gray-800 dark:text-gray-200">Dólar {{ dolar.nombre }}</h1>
 
 				<div class="flex-1"></div>
 
 				<div>
 					<div class="flex items-center">
 						<dl v-if="dolar.compra" class="flex-1 flex flex-col justify-center items-center">
-							<dt class="text-xs uppercase text-gray-600">Compra</dt>
-							<dd class="text-gray-800 font-bold">${{ dolar.compra }}</dd>
+							<dt class="text-xs uppercase text-gray-600 dark:text-gray-400">Compra</dt>
+							<dd class="text-gray-800 dark:text-gray-200 font-bold">${{ dolar.compra }}</dd>
 						</dl>
 						<div v-else class="flex-1"></div>
 
 						<div class="flex-1"></div>
 
 						<dl v-if="dolar.venta" class="flex-1 flex flex-col justify-center items-center">
-							<dt class="text-xs uppercase text-gray-600">Venta</dt>
-							<dd class="text-gray-800 font-bold">${{ dolar.venta }}</dd>
+							<dt class="text-xs uppercase text-gray-600 dark:text-gray-400">Venta</dt>
+							<dd class="text-gray-800 dark:text-gray-200 font-bold">${{ dolar.venta }}</dd>
 						</dl>
 						<div v-else class="flex-1"></div>
 					</div>
@@ -57,7 +75,7 @@ const dolares = props.dolares
 			</div>
 		</div>
 
-		<div class="text-center text-gray-800 text-sm">
+		<div class="text-center text-gray-800 dark:text-gray-200 text-sm">
 			<p>Desarrollado con <a href="https://esjs.dev?ref=app.dolarapi.com" target="_blank" class="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded">esjs.dev</a></p>
 		</div>
 	</div>
