@@ -68,6 +68,7 @@ async function render(req, res, importer) {
 			<meta name="description" content="App desarrollada en EsJS que muestra la cotización del Dólar en Argentina">
 			<link rel="icon" href="/favicon.ico" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			
 			<title>Dólar Argentina - EsJS</title>
 			<link rel="stylesheet" href="${cssEntryPath}">
 			<script async src="https://www.googletagmanager.com/gtag/js?id=${gTagId}"></script>
@@ -78,6 +79,26 @@ async function render(req, res, importer) {
 		
 			  gtag('config', '${gTagId}');
 			</script>
+			
+			<!-- OG Tags -->
+    		<meta property="og:title" content="App.DolarApi.com" />
+    		<meta property="og:description" content="Cotización del Dólar en Argentina" />
+    		<meta property="og:image" content="https://dolarapi.com/docs/assets/og.png" />
+    		<meta property="og:url" content="https://app.dolarapi.com" />
+    		<meta property="og:type" content="website" />
+    		<meta property="og:site_name" content="App.DolarApi.com" />
+    		<meta property="og:locale" content="es_AR" />
+
+    		<!-- Twitter Tags -->
+    		<meta name="twitter:card" content="summary_large_image" />
+    		<meta name="twitter:site" content="@dolarapi" />
+    		<meta name="twitter:creator" content="@dolarapi" />
+    		<meta name="twitter:title" content="App.DolarApi.com" />
+    		<meta name="twitter:description" content="Cotización del Dólar en Argentina" />
+    		<meta name="twitter:image" content="https://dolarapi.com/docs/assets/og.png" />
+    		<meta name="twitter:image:alt" content="App.DolarApi.com" />
+    		<meta name="twitter:url" content="https://app.dolarapi.com" />
+    		<meta name="twitter:domain" content="app.dolarapi.com" />
 		</head>
 		<body>
 			<div id="root">${content}</div>
