@@ -8,8 +8,8 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "@es-js/vite-plugin-esjs": "^0.0.16",
-    "@es-js/vite-plugin-esvue": "^0.0.16",
+    "@es-js/vite-plugin-esjs": "^0.1.0-beta.1",
+    "@es-js/vite-plugin-esvue": "0.1.0-beta.3",
     "@unocss/reset": "^0.48.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vueuse/core": "^10.7.2",
