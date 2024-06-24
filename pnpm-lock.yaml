@@ -12,8 +12,8 @@ importers:
         specifier: ^0.1.0-beta.1
         version: 0.1.0-beta.1(@types/node@18.11.18)
       '@es-js/vite-plugin-esvue':
-        specifier: 0.1.0-beta.3
-        version: 0.1.0-beta.3(@types/node@18.11.18)
+        specifier: 0.1.0-beta.4
+        version: 0.1.0-beta.4(@types/node@18.11.18)
       '@unocss/reset':
         specifier: ^0.48.0
         version: 0.48.0
@@ -86,8 +86,8 @@ packages:
   '@es-js/vite-plugin-esjs@0.1.0-beta.1':
     resolution: {integrity: sha512-msV/XVIcVU58FNKWZ8Q4OzXZHRTZg4WciCPYyalZwRTl2SZyKXUmQFYNHiBIaxFwPwx32cuqyL+3r/Zf9QqJqg==}
 
-  '@es-js/vite-plugin-esvue@0.1.0-beta.3':
-    resolution: {integrity: sha512-qdhawtrcM51lvHX0IFZjlrQlkLP1nPPO3zgZUc4M5lzm+H0zLmr+/IOIEmmccabnQup5fJIk5eJW+Set2MtuPw==}
+  '@es-js/vite-plugin-esvue@0.1.0-beta.4':
+    resolution: {integrity: sha512-Da8h30SkN+038aIaMZGe26AgScRwoyPG+/xP59AkvsSKsTqhTq1N+UBtMKZs/IlDFCeGML1Kb0PVj4Q4C6JJIw==}
 
   '@esbuild/android-arm64@0.16.14':
     resolution: {integrity: sha512-hTqB6Iq13pW4xaydeqQrs8vPntUnMjbkq+PgGiBMi69eYk74naG2ftHWqKnxn874kNrt5Or3rQ0PJutx2doJuQ==}
@@ -1307,7 +1307,7 @@ snapshots:
       - sugarss
       - terser
 
-  '@es-js/vite-plugin-esvue@0.1.0-beta.3(@types/node@18.11.18)':
+  '@es-js/vite-plugin-esvue@0.1.0-beta.4(@types/node@18.11.18)':
     dependencies:
       vite: 4.5.1(@types/node@18.11.18)
     transitivePeerDependencies:
