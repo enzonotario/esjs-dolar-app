@@ -1,3 +1,3 @@
 exportar porDefecto {
-    '/': () =>  importar('@/paginas/inicio.esvue')
+  '/': () => importar('@/paginas/inicio.esvue'),
 }

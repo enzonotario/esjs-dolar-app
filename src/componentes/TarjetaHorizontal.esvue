@@ -1,26 +1,36 @@
----
+<codigo configuracion="">
 const props = defineProps({
-    dolar: Object,
+  dolar: Objeto,
 })
----
-<template>
-    <div class="flex flex-row flex-wrap items-center p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">
-        <h1 class="text-lg text-center font-bold text-gray-800 dark:text-gray-200">Dólar {{ dolar.nombre }}</h1>
+</codigo>
+<plantilla>
+  <division clase="flex flex-row flex-wrap items-center p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">
+    <t1 clase="text-lg text-center font-bold text-gray-800 dark:text-gray-200">
+      Dólar {{ dolar.nombre }}
+    </t1>
 
-        <div class="flex-1 lg:min-w-10"></div>
+    <division clase="flex-1 lg:min-w-10"></division>
 
-        <div class="flex justify-end flex-grow lg:gap-4">
-            <dl v-if="dolar.compra" class="flex flex-col justify-center items-center w-20">
-                <dt class="text-xs uppercase text-gray-600 dark:text-gray-400">Compra</dt>
-                <dd class="text-gray-800 dark:text-gray-200 font-bold">${{ dolar.compra }}</dd>
-            </dl>
-            <div v-else class="flex-1"></div>
+    <division clase="flex justify-end flex-grow lg:gap-4">
+      <lista-definiciones v-if="dolar.compra" clase="flex flex-col justify-center items-center w-20">
+        <termino-definicion clase="text-xs uppercase text-gray-600 dark:text-gray-400">
+          Compra
+        </termino-definicion>
+        <definicion-descripcion clase="text-gray-800 dark:text-gray-200 font-bold">
+          ${{ dolar.compra }}
+        </definicion-descripcion>
+      </lista-definiciones>
+      <division v-else="" clase="flex-1"></division>
 
-            <dl v-if="dolar.venta" class="flex flex-col justify-center items-center w-20">
-                <dt class="text-xs uppercase text-gray-600 dark:text-gray-400">Venta</dt>
-                <dd class="text-gray-800 dark:text-gray-200 font-bold">${{ dolar.venta }}</dd>
-            </dl>
-            <div v-else class="flex-1"></div>
-        </div>
-    </div>
-</template>
+      <lista-definiciones v-if="dolar.venta" clase="flex flex-col justify-center items-center w-20">
+        <termino-definicion clase="text-xs uppercase text-gray-600 dark:text-gray-400">
+          Venta
+        </termino-definicion>
+        <definicion-descripcion clase="text-gray-800 dark:text-gray-200 font-bold">
+          ${{ dolar.venta }}
+        </definicion-descripcion>
+      </lista-definiciones>
+      <division v-else="" clase="flex-1"></division>
+    </division>
+  </division>
+</plantilla>

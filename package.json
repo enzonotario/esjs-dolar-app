@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vavite",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "format": "prettier --write ."
   },
   "devDependencies": {
-    "@es-js/vite-plugin-esjs": "^0.1.0-beta.1",
-    "@es-js/vite-plugin-esvue": "0.1.0-beta.4",
+    "@es-js/vite-plugin-esjs": "^0.1.0-beta.2",
+    "@es-js/vite-plugin-esvue": "^0.1.0-beta.8",
     "@unocss/reset": "^0.48.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vueuse/core": "^10.7.2",
@@ -20,7 +21,18 @@
     "unocss": "^0.48.0",
     "vavite": "^1.5.2",
     "vite": "^4.0.4",
-    "vue": "^3.2.45",
+    "vue": "^3.4.34",
+    "prettier": "^3.3.3",
+    "prettier-plugin-esjs": "^0.1.0-beta.2",
+    "prettier-plugin-esvue": "^0.0.1-beta.1",
     "vue-router": "^4.1.6"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "plugins": [
+      "prettier-plugin-esjs",
+      "prettier-plugin-esvue"
+    ]
   }
 }

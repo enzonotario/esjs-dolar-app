@@ -3,12 +3,12 @@
   "functions": {
     "api/index.mjs": {
       "includeFiles": "dist/**"
-     }
+    }
   },
   "rewrites": [
-      {
-        "source": "/((?!dist/).*)",
-        "destination": "/api/index.mjs"
-      }
+    {
+      "source": "/((?!dist/).*)",
+      "destination": "/api/index.mjs"
+    }
   ]
 }

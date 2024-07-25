@@ -24,10 +24,10 @@ export default defineConfig({
 
     // https://github.com/cyco130/vavite
     vavite({
-			serverEntry: "/server.js",
-			serveClientAssetsInDev: true,
-			reloadOn: "static-deps-change",
-		}),
+      serverEntry: '/server.js',
+      serveClientAssetsInDev: true,
+      reloadOn: 'static-deps-change',
+    }),
   ],
   resolve: {
     alias: {
@@ -49,24 +49,24 @@ export default defineConfig({
     port: 3000,
   },
   buildSteps: [
-		{
-			name: "client",
-			config: {
-				build: {
-					outDir: "dist/client",
-					manifest: true,
-					rollupOptions: { input: "client.js" },
-				},
-			},
-		},
-		{
-			name: "server",
-			config: {
-				build: {
-					ssr: true,
-					outDir: "dist/server",
-				},
-			},
-		},
-	]
+    {
+      name: 'client',
+      config: {
+        build: {
+          outDir: 'dist/client',
+          manifest: true,
+          rollupOptions: { input: 'client.js' },
+        },
+      },
+    },
+    {
+      name: 'server',
+      config: {
+        build: {
+          ssr: true,
+          outDir: 'dist/server',
+        },
+      },
+    },
+  ],
 })

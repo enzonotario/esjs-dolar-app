@@ -1,7 +1,5 @@
----
----
-<template>
-	<div class="grid place-items-center min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-		<slot></slot>
-	</div>
-</template>
+<plantilla>
+  <division class="grid place-items-center min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <slot></slot>
+  </division>
+</plantilla>
