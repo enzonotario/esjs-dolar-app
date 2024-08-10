@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     devDependencies:
+      '@ddgll/vue3-trend':
+        specifier: ^1.0.3
+        version: 1.0.3
       '@es-js/vite-plugin-esjs':
         specifier: ^0.1.0-beta.2
         version: 0.1.0-beta.2(@types/node@18.11.18)
@@ -43,6 +46,9 @@ importers:
       prettier-plugin-esvue:
         specifier: ^0.0.1-beta.1
         version: 0.0.1-beta.1(prettier@3.3.3)
+      tailwind-colors:
+        specifier: ^1.1.0
+        version: 1.1.0
       unocss:
         specifier: ^0.48.0
         version: 0.48.0(rollup@3.29.4)(vite@4.0.4(@types/node@18.11.18))
@@ -113,6 +119,12 @@ packages:
         integrity: sha512-69OnhBxSSgK0OzTJai4kyPDiKTIe3j+ctaHdIGVbRahTLAT7L3R9oeXHC2aVSuGYt3cVnoAMDmOCgJ2yaiLMvg==,
       }
     engines: { node: '>=6.9.0' }
+
+  '@ddgll/vue3-trend@1.0.3':
+    resolution:
+      {
+        integrity: sha512-bub1KYxX1fzLGs3ekkGk3LfnT9bTjmo+jssMGYJSL6VCgcmJaWIyVZRRQbYfigYUMuOfKKc+sTwj2zJ7V73YgA==,
+      }
 
   '@es-js/vite-plugin-esjs@0.1.0-beta.2':
     resolution:
@@ -1948,6 +1960,12 @@ packages:
       }
     engines: { node: '>= 0.4' }
 
+  tailwind-colors@1.1.0:
+    resolution:
+      {
+        integrity: sha512-U3637S7IbJu72Qzq2oCzVTvmXkuD6fgX5iBgzfBTZq1OTcLIbe3tGKCPfA6A/ugeXsnjhGJj4ZExjU217WMzpQ==,
+      }
+
   to-fast-properties@2.0.0:
     resolution:
       {
@@ -2027,6 +2045,13 @@ packages:
         integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==,
       }
     engines: { node: '>= 0.4.0' }
+
+  uuid@8.3.2:
+    resolution:
+      {
+        integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==,
+      }
+    hasBin: true
 
   vary@1.1.2:
     resolution:
@@ -2179,6 +2204,13 @@ snapshots:
       '@babel/helper-string-parser': 7.19.4
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
+
+  '@ddgll/vue3-trend@1.0.3':
+    dependencies:
+      uuid: 8.3.2
+      vue: 3.4.34
+    transitivePeerDependencies:
+      - typescript
 
   '@es-js/vite-plugin-esjs@0.1.0-beta.2(@types/node@18.11.18)':
     dependencies:
@@ -3244,6 +3276,8 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
+  tailwind-colors@1.1.0: {}
+
   to-fast-properties@2.0.0: {}
 
   to-regex-range@5.0.1:
@@ -3298,6 +3332,8 @@ snapshots:
   unpipe@1.0.0: {}
 
   utils-merge@1.0.1: {}
+
+  uuid@8.3.2: {}
 
   vary@1.1.2: {}
 

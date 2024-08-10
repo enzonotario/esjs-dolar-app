@@ -1,6 +1,7 @@
 {
   "name": "@es-js/crear-esvue-app",
   "version": "0.0.1",
+  "type": "module",
   "license": "MIT",
   "scripts": {
     "dev": "vite --host",
@@ -9,6 +10,7 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
+    "@ddgll/vue3-trend": "^1.0.3",
     "@es-js/vite-plugin-esjs": "^0.1.0-beta.2",
     "@es-js/vite-plugin-esvue": "^0.1.0-beta.8",
     "@unocss/reset": "^0.48.0",
@@ -18,13 +20,14 @@
     "axios": "^1.2.2",
     "date-fns": "^2.29.3",
     "express": "^4.18.2",
+    "prettier": "^3.3.3",
+    "prettier-plugin-esjs": "^0.1.0-beta.2",
+    "prettier-plugin-esvue": "^0.0.1-beta.1",
+    "tailwind-colors": "^1.1.0",
     "unocss": "^0.48.0",
     "vavite": "^1.5.2",
     "vite": "^4.0.4",
     "vue": "^3.4.34",
-    "prettier": "^3.3.3",
-    "prettier-plugin-esjs": "^0.1.0-beta.2",
-    "prettier-plugin-esvue": "^0.0.1-beta.1",
     "vue-router": "^4.1.6"
   },
   "prettier": {
