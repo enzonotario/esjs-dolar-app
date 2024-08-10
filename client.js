@@ -18,6 +18,10 @@ async function render() {
   const apiUrl = 'https://dolarapi.com/'
   const dolares = (await axios.get(apiUrl + 'v1/dolares')).data
 
+  const historicos = (
+    await axios.get('https://api.argentinadatos.com/v1/cotizaciones/dolares')
+  ).data
+
   const app = createSSRApp({
     render() {
       return h(
@@ -29,6 +33,7 @@ async function render() {
               apiUrl,
               dolares,
               og: window.location.search.includes('og'),
+              historicos,
             })
           },
         },

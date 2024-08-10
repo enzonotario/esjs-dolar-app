@@ -4,12 +4,15 @@ importar axios desde 'axios'
 importar TarjetaVertical desde '@/componentes/TarjetaVertical.esvue'
 importar TarjetaHorizontal desde '@/componentes/TarjetaHorizontal.esvue'
 importar CambiarModo desde '@/componentes/CambiarModo.esvue'
+importar CambiarDias desde '@/componentes/CambiarDias.esvue'
 importar ActualizadoEl desde '@/componentes/ActualizadoEl.esvue'
+importar colores desde 'tailwind-colors'
 
 const props = defineProps({
   apiUrl: Cadena,
   dolares: Matriz,
   og: Booleano,
+  historicos: Matriz,
 })
 
 const dolares = props.dolares.mapear((dolar) => {
@@ -23,43 +26,50 @@ const dolares = props.dolares.mapear((dolar) => {
   retornar dolar
 })
 
+const disposicion = [
+  'oficial',
+  'blue',
+  'tarjeta',
+  'bolsa',
+  'mayorista',
+  'contadoconliqui',
+  'dolarapi',
+  'cripto',
+]
+
 const oficial = dolares.buscar((dolar) => dolar.casa === 'oficial')
 
 const blue = dolares.buscar((dolar) => dolar.casa === 'blue')
 
-const resto = dolares.filtrar((dolar) => dolar.casa !== 'oficial' && dolar.casa !== 'blue').ordenar((a, b) => {
-    // Mover mayorista al final
-
-    si (a.casa === 'mayorista') {
-      retornar 1
-    }
-
-    si (b.casa === 'mayorista') {
-      retornar -1
-    }
-
-    retornar 0
-  })
+const coloresDolares = {
+  oficial: colores.gray[600],
+  blue: colores.blue[600],
+  bolsa: colores.purple[600],
+  contadoconliqui: colores.green[600],
+  mayorista: colores.pink[600],
+  cripto: colores.yellow[600],
+  tarjeta: colores.orange[600],
+}
 </codigo>
 
 <plantilla>
-  <division v-if="dolares" clase="py-10 px-4 space-y-10">
-    <CambiarModo v-if="!props.og"></CambiarModo>
+  <division v-if="dolares && props.historicos" clase="py-10 px-4 space-y-8 w-full max-w-3xl flex flex-col items-center">
+    <division clase="flex flex-col space-y-2">
+      <CambiarModo v-if="!props.og"></CambiarModo>
+      <CambiarDias></CambiarDias>
+    </division>
 
-    <division clase="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl mx-auto">
-      <division clase="flex flex-col items-center gap-4">
-        <division clase="md:order-2 flex flex-col justify-center items-center flex-1">
-          <ActualizadoEl :apiUrl="props.apiUrl" :dolares="dolares"></ActualizadoEl>
-        </division>
+    <division estilo="
+        display: grid;
+        grid-template-areas: 'oficial blue' 'mayorista bolsa' 'tarjeta contadoconliqui' 'dolarapi cripto';
+        gap: 1rem;
+      " clase="w-full">
+      <division v-for="item of disposicion" :key="item" :class="[item]">
+        <ActualizadoEl v-if="item === 'dolarapi'" :apiUrl="props.apiUrl" :dolares="dolares"></ActualizadoEl>
 
-        <division clase="flex flex-col items-center gap-4 w-full">
-          <TarjetaVertical :dolar="oficial" clase="w-full md:max-w-sm"></TarjetaVertical>
-          <TarjetaVertical :dolar="blue" clase="w-full md:max-w-sm"></TarjetaVertical>
-        </division>
-      </division>
-
-      <division clase="flex flex-col gap-4">
-        <TarjetaHorizontal v-for="dolar of resto" :key="dolar.identificador" :dolar="dolar" clase="w-full"></TarjetaHorizontal>
+        <TarjetaHorizontal v-else="" :dolar="dolares.find((dolar) => dolar.casa === item)" :historico="
+            props.historicos.filter((historico) => historico.casa === item)
+          " :color="coloresDolares[item]"></TarjetaHorizontal>
       </division>
     </division>
 
