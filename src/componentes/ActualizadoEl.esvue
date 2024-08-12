@@ -12,9 +12,8 @@ const fechasOrdenadas = props.dolares.ordenar(
 
 const ultimaActualizacion = fechasOrdenadas[0].fechaActualizacion
 </codigo>
-
 <plantilla>
-  <division clase="h-full flex flex-col justify-center items-center text-center text-gray-800 dark:text-gray-200 text-sm space-y-2">
+  <division clase="text-center text-gray-800 dark:text-gray-200 text-sm space-y-2">
     <parrafo>
       Datos obtenidos de
       <enlace :href="props.apiUrl" objetivo="_blank" clase="px-1.5 py-1 bg-indigo-700 hover:bg-indigo-600 text-white rounded">DolarApi.com</enlace>

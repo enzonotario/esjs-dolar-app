@@ -1,43 +1,38 @@
 <codigo configuracion="">
-importar Tendencia desde '@/componentes/Tendencia.esvue'
-
 const props = defineProps({
   dolar: Objeto,
-  historico: Matriz,
-  color: Cadena,
 })
 </codigo>
-
 <plantilla>
-  <division clase="flex flex-col p-2 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">
+  <division clase="flex flex-col p-4 bg-white dark:bg-gray-800 rounded border dark:border-gray-700">
     <t1 clase="text-lg text-center font-bold text-gray-800 dark:text-gray-200">
       Dólar {{ dolar.nombre }}
     </t1>
 
-    <Tendencia v-if="props.historico" :historico="props.historico" :color="props.color" clase="flex-grow h-14 p-2"></Tendencia>
+    <division>
+      <division clase="flex items-center w-full max-w-64 mx-auto">
+        <lista-definiciones v-if="dolar.compra" clase="flex-1 flex flex-col justify-center items-center">
+          <termino-definicion clase="text-xs uppercase text-gray-600 dark:text-gray-400">
+            Compra
+          </termino-definicion>
+          <definicion-descripcion clase="text-gray-800 dark:text-gray-200 font-bold">
+            ${{ dolar.compra }}
+          </definicion-descripcion>
+        </lista-definiciones>
+        <division v-else="" clase="flex-1"></division>
 
-    <division clase="flex items-center w-full max-w-64 mx-auto">
-      <lista-definiciones v-if="dolar.compra" clase="flex-1 flex flex-col justify-center items-center">
-        <termino-definicion clase="text-xs uppercase text-gray-600 dark:text-gray-400">
-          Compra
-        </termino-definicion>
-        <definicion-descripcion clase="text-gray-800 dark:text-gray-200 font-bold">
-          ${{ dolar.compra }}
-        </definicion-descripcion>
-      </lista-definiciones>
-      <division v-else="" clase="flex-1"></division>
+        <division clase="flex-1"></division>
 
-      <division clase="flex-1"></division>
-
-      <lista-definiciones v-if="dolar.venta" clase="flex-1 flex flex-col justify-center items-center">
-        <termino-definicion clase="text-xs uppercase text-gray-600 dark:text-gray-400">
-          Venta
-        </termino-definicion>
-        <definicion-descripcion clase="text-gray-800 dark:text-gray-200 font-bold">
-          ${{ dolar.venta }}
-        </definicion-descripcion>
-      </lista-definiciones>
-      <division v-else="" clase="flex-1"></division>
+        <lista-definiciones v-if="dolar.venta" clase="flex-1 flex flex-col justify-center items-center">
+          <termino-definicion clase="text-xs uppercase text-gray-600 dark:text-gray-400">
+            Venta
+          </termino-definicion>
+          <definicion-descripcion clase="text-gray-800 dark:text-gray-200 font-bold">
+            ${{ dolar.venta }}
+          </definicion-descripcion>
+        </lista-definiciones>
+        <division v-else="" clase="flex-1"></division>
+      </division>
     </division>
   </division>
 </plantilla>

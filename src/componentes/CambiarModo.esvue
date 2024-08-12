@@ -5,7 +5,6 @@ const modoOscuro = useDark()
 
 const cambiarModoOscuro = useToggle(modoOscuro)
 </codigo>
-
 <plantilla>
   <division clase="flex justify-center">
     <boton clase="px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center space-x-2 text-xs" @click="cambiarModoOscuro()">
